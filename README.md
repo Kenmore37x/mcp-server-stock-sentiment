@@ -26,7 +26,7 @@ uv sync
 
 This project uses the news.org API to fetch real headlines. You'll need to:
 
-1. Sign up for a free account at [NEWS.ORG](https://news.org/api)
+1. Sign up for a free account at [NEWSAPI.ORG](https://newsapi.org/)
 2. Get your API key from the dashboard
 3. Set the environment variable:
 
