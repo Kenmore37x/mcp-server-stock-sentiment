@@ -11,7 +11,7 @@ mcp = FastMCP("stock_sentiment", dependencies=["requests"])
 
 @mcp.tool()
 def get_sentiment(ticker: str) -> dict[str, Any]:
-    # API_KEY = "7e9fba7955f84ce9b4403b4e1838ec54"
+    # Retrieve API key from env variable
     NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
     today = datetime.date.today()
@@ -48,11 +48,7 @@ def get_sentiment(ticker: str) -> dict[str, Any]:
 
     sentiment_score = (positive - negative) / total
 
-    description = f"\nSummary for {ticker}: \nPositive: {positive}, Negative: {negative}, Neutral: {neutral}\nSentiment Score: {sentiment_score:.2f}"
-
-    #print(f"\nSummary for {ticker}:")
-    #print(f"Positive: {positive}, Negative: {negative}, Neutral: {neutral}")
-    #print(f"Sentiment Score: {sentiment_score:.2f}")
+    description = f"Summary for {ticker}: Positive: {positive}, Negative: {negative}, Neutral: {neutral}, Sentiment Score: {sentiment_score:.2f}"
 
     return {
         "Stock": ticker,
